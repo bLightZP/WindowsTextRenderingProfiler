@@ -6,7 +6,7 @@ I created a stack exchange discussion to see if there's a work-around for this i
 http://stackoverflow.com/questions/43895435/exttextoutw-x50-performance-drop-on-qhd-4k-screens-after-windows-creators-editio
 
 Download the compiled executable here:
-http://zoomplayer.com/dl/WinTextRendererProfiler100.zip
+http://zoomplayer.com/dl/WinTextRendererProfiler101.zip
 
 Notes:
 The log file is saved to "c:\Log", create the folder if you want to save detailed log files.
