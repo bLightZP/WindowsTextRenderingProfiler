@@ -54,6 +54,7 @@ var
   i64end         : Int64;
   dDuration      : Double;
   dRenderSpeed   : Double;
+  lfRecord       : TLogFont;
 begin
   TestForm.TestImage.Picture.Bitmap.PixelFormat := pf32bit;
   TestForm.TestImage.Picture.Bitmap.Canvas.Brush.Color := clBlack;
@@ -72,6 +73,13 @@ begin
   testBitmap := TestForm.TestImage.Picture.Bitmap;
   cRect      := Rect(0,0,testBitmap.Width,testBitmap.Height);
   testBitmap.Canvas.FillRect(cRect);
+
+  // Disable clear type
+  If GetObject(testBitmap.Canvas.Font.Handle, SizeOf(TLogFont), @lfRecord) = sizeof(TLogFont) then
+  begin
+    lfRecord.lfQuality := ANTIALIASED_QUALITY;
+    testBitmap.Canvas.Font.Handle := CreateFontIndirect(lfRecord);
+  end;
 
   {$IFDEF TEXTRENDERTRACE}DebugMsgFT(LogFile,'Begin Test');{$ENDIF}
   QueryPerformanceCounter(i64start);
